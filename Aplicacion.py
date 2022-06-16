@@ -1,8 +1,5 @@
-import copy
-
 import PySimpleGUI as sg
 import cv2
-import numpy as np
 
 from Vista import window_principal, datos_tabla
 from Util import cambiar_dimension_cuadrado, generar_archivo, abrir_archivo, guardar_archivo, guardar_archivo_como
@@ -96,7 +93,7 @@ while True:
                 imagen_objeto = Imagen(cv2.imread(ruta, 0))
                 window["-PROPIEDADES_SLIDE-"].update(visible=True)
             if valor == [15]:
-                imagen=Imagen(cv2.imread(ruta, 0)).ecualizacion()
+                imagen = Imagen(cv2.imread(ruta, 0)).ecualizacion()
             if valor == [16]:
                 imagen_objeto = Imagen(cv2.imread(ruta, 0))
                 window["-PROPIEDADES_THERSHOLDING-"].update(visible=True)
@@ -130,11 +127,11 @@ while True:
     if event == "-APLICAR_CONTRASTE-":
         constante = values["-CONSTANTE_CONTRASTE-"]
         constante2 = values["-CONSTANTE_CONTRASTE2-"]
-        imagen = imagen_objeto.contraste(constante2,constante)
+        imagen = imagen_objeto.contraste(constante2, constante)
     if event == "-APLICAR_SHRINK-":
         constante = values["-CONSTANTE_SHRINK-"]
         constante2 = values["-CONSTANTE_SHRINK2-"]
-        imagen = imagen_objeto.shrink(constante,constante2)
+        imagen = imagen_objeto.shrink(constante, constante2)
     if event == "-APLICAR_SLIDE-":
         constante = values["-CONSTANTE_SLIDE-"]
         imagen = imagen_objeto.slide(constante)
